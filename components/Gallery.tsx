@@ -3,14 +3,11 @@
 import { useState } from "react";
 
 const works = [
-  { id: 1, title: "Silence I", category: "Acrylic", year: "2024", aspect: "portrait", color: "#2a1f1a" },
-  { id: 2, title: "Urban Flow", category: "Digital", year: "2024", aspect: "landscape", color: "#1a2030" },
-  { id: 3, title: "Bloom", category: "Acrylic", year: "2023", aspect: "square", color: "#1f1a2a" },
-  { id: 4, title: "Fracture", category: "Mixed Media", year: "2023", aspect: "portrait", color: "#1a2520" },
-  { id: 5, title: "Memory Lane", category: "Installation", year: "2023", aspect: "landscape", color: "#201a15" },
-  { id: 6, title: "Echo", category: "Digital", year: "2022", aspect: "square", color: "#151a20" },
-  { id: 7, title: "Drift", category: "Collaboration", year: "2022", aspect: "portrait", color: "#1a1520" },
-  { id: 8, title: "Solitude", category: "Mixed Media", year: "2022", aspect: "landscape", color: "#201a1a" },
+  { id: 1, title: "Echoes in Gold", category: "Mixed Media", year: "2025", image: "/works/mixed-01.jpg", aspect: "landscape", size: "163×130cm" },
+  { id: 2, title: "Pink Pulse", category: "Mixed Media", year: "2025", image: "/works/mixed-02.jpg", aspect: "portrait", size: "130×163cm" },
+  { id: 3, title: "Starfall Signal", category: "Mixed Media", year: "2025", image: "/works/mixed-03.jpg", aspect: "landscape", size: "163×130cm" },
+  { id: 4, title: "Trumpet Light", category: "Mixed Media", year: "2025", image: "/works/mixed-04.jpg", aspect: "portrait", size: "91×116.8cm" },
+  { id: 5, title: "When He Comes, Starting", category: "Mixed Media", year: "2025", image: "/works/mixed-05.jpg", aspect: "portrait", size: "60×75cm" },
 ];
 
 const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
@@ -55,19 +52,19 @@ export default function Gallery() {
               work.aspect === "portrait" ? "row-span-2" : work.aspect === "landscape" ? "col-span-2" : ""
             }`}
             style={{
-              background: work.color,
-              aspectRatio: work.aspect === "portrait" ? "3/4" : work.aspect === "landscape" ? "16/9" : "1/1",
+              aspectRatio: work.aspect === "portrait" ? "3/4" : "16/9",
             }}
           >
-            {/* Placeholder art */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 border border-[#c8a97e]/20 rotate-45 group-hover:scale-110 transition-transform duration-700" />
-            </div>
+            <img
+              src={work.image}
+              alt={work.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-500 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/55 transition-all duration-500 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
               <p className="text-[#ffffff] text-sm font-light">{work.title}</p>
-              <p className="text-[#c8a97e] text-xs tracking-widest mt-1">{work.category}</p>
+              <p className="text-[#c8a97e] text-xs tracking-widest mt-1">{work.size}</p>
             </div>
           </button>
         ))}
@@ -83,16 +80,17 @@ export default function Gallery() {
             className="relative max-w-2xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <div
-              className="w-full aspect-square flex items-center justify-center"
-              style={{ background: selected.color }}
-            >
-              <div className="w-32 h-32 border border-[#c8a97e]/30 rotate-45" />
-            </div>
+            <img
+              src={selected.image}
+              alt={selected.title}
+              className="w-full object-contain max-h-[70vh]"
+            />
             <div className="mt-6 flex justify-between items-end">
               <div>
                 <h3 className="text-2xl font-thin text-[#ffffff]">{selected.title}</h3>
-                <p className="text-[#c8a97e] text-xs tracking-widest mt-1">{selected.category} · {selected.year}</p>
+                <p className="text-[#c8a97e] text-xs tracking-widest mt-1">
+                  {selected.category} · {selected.year} · {selected.size}
+                </p>
               </div>
               <button
                 onClick={() => setSelected(null)}
