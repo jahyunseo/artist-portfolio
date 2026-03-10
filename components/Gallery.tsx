@@ -13,7 +13,7 @@ const works = [
   { id: 8, title: "Solitude", category: "Mixed Media", year: "2022", aspect: "landscape", color: "#201a1a" },
 ];
 
-const categories = ["All", "Oil Painting", "Digital Art", "Watercolor", "Mixed Media"];
+const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
