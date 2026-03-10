@@ -11,6 +11,7 @@ const works = [
   { id: 6, title: "CUBEHEART PASSION", category: "Digital", year: "2022", image: "/works/digital-07.jpg", size: "" },
   { id: 7, title: "Love Prayertime R837", category: "Digital", year: "2023", image: "/works/digital-08.jpg", size: "40×40cm" },
   { id: 8, title: "Love Prayertime Secret Code", category: "Digital", year: "2023", image: "/works/digital-09.jpg", size: "40×40cm" },
+  { id: 9, title: "Love Prayertime J10416", category: "Digital", year: "2023", image: "/works/digital-10.jpg", size: "40×40cm" },
 ];
 
 const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
