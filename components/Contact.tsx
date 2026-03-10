@@ -16,7 +16,7 @@ export default function Contact() {
     { label: "Instagram", href: "https://www.instagram.com/jahyunseo_artist" },
     { label: "YouTube", href: "https://www.youtube.com/@jahyunseoartist" },
     { label: "Linktree", href: "https://linktr.ee/jahyun.seo" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/jahyunseo" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/jahyun-seo-596b9114b/" },
   ];
 
   return (
