@@ -3,20 +3,20 @@
 import { useState } from "react";
 
 const works = [
-  { id: 1, title: "Echoes in Gold", category: "Mixed Media", year: "2025", image: "/works/mixed-01.jpg", aspect: "landscape", size: "163×130cm" },
-  { id: 2, title: "Pink Pulse", category: "Mixed Media", year: "2025", image: "/works/mixed-02.jpg", aspect: "portrait", size: "130×163cm" },
-  { id: 3, title: "Starfall Signal", category: "Mixed Media", year: "2025", image: "/works/mixed-03.jpg", aspect: "landscape", size: "163×130cm" },
-  { id: 4, title: "Trumpet Light", category: "Mixed Media", year: "2025", image: "/works/mixed-04.jpg", aspect: "portrait", size: "91×116.8cm" },
-  { id: 5, title: "When He Comes, Starting", category: "Mixed Media", year: "2025", image: "/works/mixed-05.jpg", aspect: "portrait", size: "60×75cm" },
-  { id: 6, title: "Protection and Shield A", category: "Digital", year: "2019", image: "/works/digital-01.jpg", aspect: "square", size: "30×30cm" },
-  { id: 7, title: "Which Choice", category: "Digital", year: "2019", image: "/works/digital-02.jpg", aspect: "square", size: "" },
-  { id: 8, title: "Monalisa 7", category: "Digital", year: "2020", image: "/works/digital-03.jpg", aspect: "square", size: "67.7×67.7cm" },
-  { id: 9, title: "The Sermon on the Mount 5", category: "Digital", year: "2020", image: "/works/digital-04.jpg", aspect: "square", size: "110×110cm" },
-  { id: 10, title: "The Creation 35", category: "Digital", year: "2020", image: "/works/digital-05.jpg", aspect: "square", size: "110×110cm" },
-  { id: 11, title: "CUBEHEART LOVE", category: "Digital", year: "2022", image: "/works/digital-06.jpg", aspect: "square", size: "" },
-  { id: 12, title: "CUBEHEART PASSION", category: "Digital", year: "2022", image: "/works/digital-07.jpg", aspect: "square", size: "" },
-  { id: 13, title: "Love Prayertime R837", category: "Digital", year: "2023", image: "/works/digital-08.jpg", aspect: "square", size: "40×40cm" },
-  { id: 14, title: "Love Prayertime Secret Code", category: "Digital", year: "2023", image: "/works/digital-09.jpg", aspect: "square", size: "40×40cm" },
+  { id: 1, title: "Echoes in Gold", category: "Mixed Media", year: "2025", image: "/works/mixed-01.jpg", size: "163×130cm" },
+  { id: 2, title: "Pink Pulse", category: "Mixed Media", year: "2025", image: "/works/mixed-02.jpg", size: "130×163cm" },
+  { id: 3, title: "Starfall Signal", category: "Mixed Media", year: "2025", image: "/works/mixed-03.jpg", size: "163×130cm" },
+  { id: 4, title: "Trumpet Light", category: "Mixed Media", year: "2025", image: "/works/mixed-04.jpg", size: "91×116.8cm" },
+  { id: 5, title: "When He Comes, Starting", category: "Mixed Media", year: "2025", image: "/works/mixed-05.jpg", size: "60×75cm" },
+  { id: 6, title: "Protection and Shield A", category: "Digital", year: "2019", image: "/works/digital-01.jpg", size: "30×30cm" },
+  { id: 7, title: "Which Choice", category: "Digital", year: "2019", image: "/works/digital-02.jpg", size: "" },
+  { id: 8, title: "Monalisa 7", category: "Digital", year: "2020", image: "/works/digital-03.jpg", size: "67.7×67.7cm" },
+  { id: 9, title: "The Sermon on the Mount 5", category: "Digital", year: "2020", image: "/works/digital-04.jpg", size: "110×110cm" },
+  { id: 10, title: "The Creation 35", category: "Digital", year: "2020", image: "/works/digital-05.jpg", size: "110×110cm" },
+  { id: 11, title: "CUBEHEART LOVE", category: "Digital", year: "2022", image: "/works/digital-06.jpg", size: "" },
+  { id: 12, title: "CUBEHEART PASSION", category: "Digital", year: "2022", image: "/works/digital-07.jpg", size: "" },
+  { id: 13, title: "Love Prayertime R837", category: "Digital", year: "2023", image: "/works/digital-08.jpg", size: "40×40cm" },
+  { id: 14, title: "Love Prayertime Secret Code", category: "Digital", year: "2023", image: "/works/digital-09.jpg", size: "40×40cm" },
 ];
 
 const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
@@ -51,29 +51,24 @@ export default function Gallery() {
         ))}
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {/* Grid — 3열, 정사각형 통일 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filtered.map((work) => (
           <button
             key={work.id}
             onClick={() => setSelected(work)}
-            className={`group relative overflow-hidden cursor-pointer ${
-              work.aspect === "portrait" ? "row-span-2" : work.aspect === "landscape" ? "col-span-2" : ""
-            }`}
-            style={{
-              aspectRatio: work.aspect === "portrait" ? "3/4" : "16/9",
-            }}
+            className="group relative w-full overflow-hidden rounded-md cursor-pointer aspect-square"
           >
             <img
               src={work.image}
               alt={work.title}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/55 transition-all duration-500 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
-              <p className="text-[#ffffff] text-sm font-light">{work.title}</p>
-              <p className="text-[#c8a97e] text-xs tracking-widest mt-1">{work.size}</p>
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-400 rounded-md flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 px-4">
+              <p className="text-[#ffffff] text-sm font-light text-center leading-snug">{work.title}</p>
+              <p className="text-[#c8a97e] text-xs tracking-widest mt-2">{work.year}</p>
             </div>
           </button>
         ))}
@@ -92,7 +87,7 @@ export default function Gallery() {
             <img
               src={selected.image}
               alt={selected.title}
-              className="w-full object-contain max-h-[70vh]"
+              className="w-full object-contain max-h-[70vh] rounded-md"
             />
             <div className="mt-6 flex justify-between items-end">
               <div>
