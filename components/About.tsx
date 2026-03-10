@@ -66,7 +66,10 @@ export default function About() {
 
           {/* CV Download */}
           <a
-            href="#"
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
             className="inline-block border border-[#c8a97e]/40 text-[#c8a97e] text-xs tracking-widest uppercase px-6 py-3 hover:bg-[#c8a97e]/10 transition-all duration-300"
           >
             Download CV
