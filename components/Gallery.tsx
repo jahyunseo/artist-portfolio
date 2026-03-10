@@ -12,6 +12,12 @@ const works = [
   { id: 7, title: "Love Prayertime R837", category: "Digital", year: "2023", image: "/works/digital-08.jpg", size: "40×40cm" },
   { id: 8, title: "Love Prayertime Secret Code", category: "Digital", year: "2023", image: "/works/digital-09.jpg", size: "40×40cm" },
   { id: 9, title: "Love Prayertime J10416", category: "Digital", year: "2023", image: "/works/digital-10.jpg", size: "40×40cm" },
+  { id: 10, title: "Seeing and Being Seen — Seoul Arts Center III", category: "Installation", year: "2020", image: "/works/install-01.jpg", size: "" },
+  { id: 11, title: "Seeing and Being Seen — Seoul Arts Center I", category: "Installation", year: "2020", image: "/works/install-02.jpg", size: "" },
+  { id: 12, title: "Seeing and Being Seen — Seoul Arts Center II", category: "Installation", year: "2020", image: "/works/install-03.jpg", size: "" },
+  { id: 13, title: "Seeing and Being Seen — La MaMa Galleria", category: "Installation", year: "2017", image: "/works/install-04.jpg", size: "" },
+  { id: 14, title: "Vermont Studio Center", category: "Installation", year: "2023", image: "/works/install-05.jpg", size: "" },
+  { id: 15, title: "New York Public Library", category: "Installation", year: "2023", image: "/works/install-06.jpg", size: "" },
 ];
 
 const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
