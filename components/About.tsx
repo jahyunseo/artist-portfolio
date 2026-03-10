@@ -1,9 +1,9 @@
 export default function About() {
   const stats = [
-    { value: "12+", label: "Years of Experience" },
-    { value: "200+", label: "Works Created" },
-    { value: "40+", label: "Exhibitions" },
-    { value: "15", label: "Awards" },
+    { value: "30+", label: "Years of Practice" },
+    { value: "19", label: "Solo Exhibitions" },
+    { value: "200+", label: "Group Exhibitions" },
+    { value: "Albany, CA", label: "Based in" },
   ];
 
   return (
