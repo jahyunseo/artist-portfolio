@@ -22,11 +22,11 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[#0d0d0dcc] backdrop-blur-md border-b border-white/5" : ""
+        scrolled ? "bg-[#fafaf8cc] backdrop-blur-md border-b border-black/5" : ""
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="#hero" className="text-[#c8a97e] font-light tracking-[0.3em] text-sm uppercase">
+        <a href="#hero" className="text-[#b8935e] font-light tracking-[0.3em] text-sm uppercase">
           Studio
         </a>
 
@@ -36,7 +36,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-xs tracking-widest uppercase text-white/50 hover:text-[#c8a97e] transition-colors duration-300"
+                className="text-xs tracking-widest uppercase text-black/40 hover:text-[#b8935e] transition-colors duration-300"
               >
                 {l.label}
               </a>
@@ -46,7 +46,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white/60 hover:text-[#c8a97e]"
+          className="md:hidden text-black/50 hover:text-[#b8935e]"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="메뉴"
         >
@@ -56,14 +56,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#0d0d0d] border-t border-white/5 px-6 pb-6">
+        <div className="md:hidden bg-[#fafaf8] border-t border-black/5 px-6 pb-6">
           <ul className="flex flex-col gap-5 pt-5">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-sm tracking-widest uppercase text-white/50 hover:text-[#c8a97e] transition-colors"
+                  className="text-sm tracking-widest uppercase text-black/40 hover:text-[#b8935e] transition-colors"
                 >
                   {l.label}
                 </a>

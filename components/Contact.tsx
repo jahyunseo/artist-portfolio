@@ -30,12 +30,12 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-32 border-t border-white/5">
+    <section id="contact" className="py-32 border-t border-black/5">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16 space-y-3">
-          <p className="text-[#c8a97e] text-xs tracking-[0.5em] uppercase">— Get in touch —</p>
-          <h2 className="text-4xl md:text-5xl font-thin text-white">Contact</h2>
-          <p className="text-white/30 text-sm mt-4">
+          <p className="text-[#b8935e] text-xs tracking-[0.5em] uppercase">— Get in touch —</p>
+          <h2 className="text-4xl md:text-5xl font-thin text-[#1a1a1a]">Contact</h2>
+          <p className="text-black/30 text-sm mt-4">
             For commissions, collaborations, or exhibition inquiries.
           </p>
         </div>
@@ -45,9 +45,9 @@ export default function Contact() {
           {status === "success" ? (
             <div className="flex items-center justify-center text-center md:col-span-2 py-16">
               <div className="space-y-3">
-                <p className="text-[#c8a97e] text-4xl">✓</p>
-                <p className="text-white font-thin text-xl">Message Sent</p>
-                <p className="text-white/40 text-sm">I&apos;ll get back to you soon.</p>
+                <p className="text-[#b8935e] text-4xl">✓</p>
+                <p className="text-[#1a1a1a] font-thin text-xl">Message Sent</p>
+                <p className="text-black/40 text-sm">I&apos;ll get back to you soon.</p>
               </div>
             </div>
           ) : (
@@ -63,12 +63,12 @@ export default function Contact() {
                     required
                     value={form[f.id as keyof typeof form]}
                     onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
-                    className="peer w-full bg-transparent border-b border-white/10 focus:border-[#c8a97e] text-white text-sm py-3 outline-none transition-colors placeholder-transparent"
+                    className="peer w-full bg-transparent border-b border-black/10 focus:border-[#b8935e] text-[#1a1a1a] text-sm py-3 outline-none transition-colors placeholder-transparent"
                     placeholder={f.label}
                   />
                   <label
                     htmlFor={f.id}
-                    className="absolute left-0 -top-3 text-[10px] tracking-widest uppercase text-[#c8a97e]/60 peer-placeholder-shown:text-xs peer-placeholder-shown:top-3 peer-placeholder-shown:text-white/30 transition-all duration-200"
+                    className="absolute left-0 -top-3 text-[10px] tracking-widest uppercase text-[#b8935e]/70 peer-placeholder-shown:text-xs peer-placeholder-shown:top-3 peer-placeholder-shown:text-black/30 transition-all duration-200"
                   >
                     {f.label}
                   </label>
@@ -82,19 +82,19 @@ export default function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="peer w-full bg-transparent border-b border-white/10 focus:border-[#c8a97e] text-white text-sm py-3 outline-none transition-colors resize-none placeholder-transparent"
+                  className="peer w-full bg-transparent border-b border-black/10 focus:border-[#b8935e] text-[#1a1a1a] text-sm py-3 outline-none transition-colors resize-none placeholder-transparent"
                   placeholder="Message"
                 />
                 <label
                   htmlFor="message"
-                  className="absolute left-0 -top-3 text-[10px] tracking-widest uppercase text-[#c8a97e]/60 peer-placeholder-shown:text-xs peer-placeholder-shown:top-3 peer-placeholder-shown:text-white/30 transition-all duration-200"
+                  className="absolute left-0 -top-3 text-[10px] tracking-widest uppercase text-[#b8935e]/70 peer-placeholder-shown:text-xs peer-placeholder-shown:top-3 peer-placeholder-shown:text-black/30 transition-all duration-200"
                 >
                   Message
                 </label>
               </div>
 
               {status === "error" && (
-                <p className="text-red-400 text-xs tracking-wide">
+                <p className="text-red-500 text-xs tracking-wide">
                   Something went wrong. Please try again.
                 </p>
               )}
@@ -102,7 +102,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="mt-4 border border-[#c8a97e]/40 text-[#c8a97e] text-xs tracking-widest uppercase px-8 py-3 hover:bg-[#c8a97e]/10 transition-all duration-300 disabled:opacity-40"
+                className="mt-4 border border-[#b8935e]/40 text-[#b8935e] text-xs tracking-widest uppercase px-8 py-3 hover:bg-[#b8935e]/10 transition-all duration-300 disabled:opacity-40"
               >
                 {status === "submitting" ? "Sending..." : "Send Message"}
               </button>
@@ -112,22 +112,22 @@ export default function Contact() {
           {/* Info */}
           <div className="space-y-10">
             <div className="space-y-2">
-              <p className="text-[10px] tracking-widest uppercase text-[#c8a97e]/60">Email</p>
+              <p className="text-[10px] tracking-widest uppercase text-[#b8935e]/70">Email</p>
               <a
                 href="mailto:jahyun.seo@gmail.com"
-                className="text-white/60 text-sm hover:text-[#c8a97e] transition-colors"
+                className="text-black/50 text-sm hover:text-[#b8935e] transition-colors"
               >
                 jahyun.seo@gmail.com
               </a>
             </div>
 
             <div className="space-y-2">
-              <p className="text-[10px] tracking-widest uppercase text-[#c8a97e]/60">Location</p>
-              <p className="text-white/60 text-sm">Albany, California, USA</p>
+              <p className="text-[10px] tracking-widest uppercase text-[#b8935e]/70">Location</p>
+              <p className="text-black/50 text-sm">Albany, California, USA</p>
             </div>
 
             <div className="space-y-3">
-              <p className="text-[10px] tracking-widest uppercase text-[#c8a97e]/60">Follow</p>
+              <p className="text-[10px] tracking-widest uppercase text-[#b8935e]/70">Follow</p>
               <div className="flex flex-col gap-2">
                 {socials.map((s) => (
                   <a
@@ -135,7 +135,7 @@ export default function Contact() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/40 text-sm hover:text-[#c8a97e] transition-colors"
+                    className="text-black/40 text-sm hover:text-[#b8935e] transition-colors"
                   >
                     {s.label} →
                   </a>

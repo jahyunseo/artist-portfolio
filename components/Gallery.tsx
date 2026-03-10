@@ -24,8 +24,8 @@ export default function Gallery() {
   return (
     <section id="gallery" className="py-32 px-6 max-w-6xl mx-auto">
       <div className="text-center mb-16 space-y-3">
-        <p className="text-[#c8a97e] text-xs tracking-[0.5em] uppercase">— Works —</p>
-        <h2 className="text-4xl md:text-5xl font-thin text-white">Gallery</h2>
+        <p className="text-[#b8935e] text-xs tracking-[0.5em] uppercase">— Works —</p>
+        <h2 className="text-4xl md:text-5xl font-thin text-[#1a1a1a]">Gallery</h2>
       </div>
 
       {/* Filter */}
@@ -36,8 +36,8 @@ export default function Gallery() {
             onClick={() => setActive(cat)}
             className={`text-xs tracking-widest uppercase px-5 py-2 border transition-all duration-300 ${
               active === cat
-                ? "border-[#c8a97e] text-[#c8a97e] bg-[#c8a97e]/10"
-                : "border-white/10 text-white/40 hover:border-white/30 hover:text-white/60"
+                ? "border-[#b8935e] text-[#b8935e] bg-[#b8935e]/10"
+                : "border-black/10 text-black/40 hover:border-black/30 hover:text-black/60"
             }`}
           >
             {cat}
@@ -51,7 +51,7 @@ export default function Gallery() {
           <button
             key={work.id}
             onClick={() => setSelected(work)}
-            className={`group relative overflow-hidden bg-[${work.color}] cursor-pointer ${
+            className={`group relative overflow-hidden cursor-pointer ${
               work.aspect === "portrait" ? "row-span-2" : work.aspect === "landscape" ? "col-span-2" : ""
             }`}
             style={{
@@ -61,13 +61,13 @@ export default function Gallery() {
           >
             {/* Placeholder art */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 border border-[#c8a97e]/40 rotate-45 group-hover:scale-110 transition-transform duration-700" />
+              <div className="w-16 h-16 border border-[#b8935e]/40 rotate-45 group-hover:scale-110 transition-transform duration-700" />
             </div>
 
             {/* Overlay */}
             <div className="absolute inset-0 bg-white/0 group-hover:bg-white/60 transition-all duration-500 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
-              <p className="text-[#2a2a2a] text-sm font-light">{work.title}</p>
-              <p className="text-[#c8a97e] text-xs tracking-widest mt-1">{work.category}</p>
+              <p className="text-[#1a1a1a] text-sm font-light">{work.title}</p>
+              <p className="text-[#b8935e] text-xs tracking-widest mt-1">{work.category}</p>
             </div>
           </button>
         ))}
@@ -76,27 +76,27 @@ export default function Gallery() {
       {/* Lightbox */}
       {selected && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-8"
+          className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-8"
           onClick={() => setSelected(null)}
         >
           <div
-            className="relative max-w-2xl w-full"
+            className="relative max-w-2xl w-full bg-[#fafaf8]"
             onClick={(e) => e.stopPropagation()}
           >
             <div
               className="w-full aspect-square flex items-center justify-center"
               style={{ background: selected.color }}
             >
-              <div className="w-32 h-32 border border-[#c8a97e]/30 rotate-45" />
+              <div className="w-32 h-32 border border-[#b8935e]/40 rotate-45" />
             </div>
-            <div className="mt-6 flex justify-between items-end">
+            <div className="p-6 flex justify-between items-end">
               <div>
-                <h3 className="text-2xl font-thin text-white">{selected.title}</h3>
-                <p className="text-[#c8a97e] text-xs tracking-widest mt-1">{selected.category} · {selected.year}</p>
+                <h3 className="text-2xl font-thin text-[#1a1a1a]">{selected.title}</h3>
+                <p className="text-[#b8935e] text-xs tracking-widest mt-1">{selected.category} · {selected.year}</p>
               </div>
               <button
                 onClick={() => setSelected(null)}
-                className="text-white/40 hover:text-white text-xs tracking-widest uppercase"
+                className="text-black/40 hover:text-black text-xs tracking-widest uppercase"
               >
                 Close ✕
               </button>

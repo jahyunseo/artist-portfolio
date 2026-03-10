@@ -22,7 +22,7 @@ export default function Hero() {
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
         size: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.4 + 0.1,
+        opacity: Math.random() * 0.25 + 0.05,
       });
     }
 
@@ -33,7 +33,7 @@ export default function Hero() {
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200, 169, 126, ${p.opacity})`;
+        ctx.fillStyle = `rgba(184, 147, 94, ${p.opacity})`;
         ctx.fill();
         p.x += p.vx;
         p.y += p.vy;
@@ -60,25 +60,25 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#fafaf8]"
     >
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d0d0d10] to-[#0d0d0d]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#fafaf810] to-[#fafaf8]" />
 
       <div className="relative z-10 text-center px-6 space-y-6">
-        <p className="text-[#c8a97e] text-xs tracking-[0.5em] uppercase">— Portfolio —</p>
-        <h1 className="text-6xl md:text-8xl font-thin tracking-tight text-white leading-none">
+        <p className="text-[#b8935e] text-xs tracking-[0.5em] uppercase">— Portfolio —</p>
+        <h1 className="text-6xl md:text-8xl font-thin tracking-tight text-[#1a1a1a] leading-none">
           Jahyun Seo
         </h1>
-        <p className="text-white/40 text-sm md:text-base tracking-[0.2em] uppercase">
+        <p className="text-black/40 text-sm md:text-base tracking-[0.2em] uppercase">
           Interdisciplinary Artist
         </p>
         <div className="pt-6">
           <a
             href="#gallery"
-            className="inline-block border border-[#c8a97e]/40 text-[#c8a97e] text-xs tracking-widest uppercase px-8 py-3 hover:bg-[#c8a97e]/10 transition-all duration-300"
+            className="inline-block border border-[#b8935e]/40 text-[#b8935e] text-xs tracking-widest uppercase px-8 py-3 hover:bg-[#b8935e]/10 transition-all duration-300"
           >
             View Work
           </a>
@@ -87,8 +87,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <span className="text-[10px] tracking-widest uppercase text-white">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-white to-transparent animate-pulse" />
+        <span className="text-[10px] tracking-widest uppercase text-black/60">Scroll</span>
+        <div className="w-px h-10 bg-gradient-to-b from-black/40 to-transparent animate-pulse" />
       </div>
     </section>
   );

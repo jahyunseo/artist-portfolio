@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0d0d0d;
-  --foreground: #f0ece4;
-  --accent: #c8a97e;
+  --background: #fafaf8;
+  --foreground: #1a1a1a;
+  --accent: #b8935e;
 }
 
 body {
@@ -14,17 +14,16 @@ body {
 }
 
 ::selection {
-  background: #c8a97e33;
+  background: #b8935e22;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d0d0d;
+  background: #fafaf8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c8a97e55;
+  background: #b8935e55;
   border-radius: 2px;
 }

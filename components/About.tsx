@@ -7,33 +7,33 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-32 border-t border-white/5">
+    <section id="about" className="py-32 border-t border-black/5">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
         {/* Image placeholder */}
         <div className="relative">
           <div
-            className="w-full aspect-[3/4] bg-[#1a1410] flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #1a1410 0%, #2a1f18 100%)" }}
+            className="w-full aspect-[3/4] flex items-center justify-center"
+            style={{ background: "linear-gradient(135deg, #e8e0d5 0%, #d5c9b8 100%)" }}
           >
-            <div className="text-center space-y-2 text-[#c8a97e]/20">
-              <div className="w-24 h-24 border border-[#c8a97e]/20 rounded-full mx-auto" />
+            <div className="text-center space-y-2 text-[#b8935e]/40">
+              <div className="w-24 h-24 border border-[#b8935e]/30 rounded-full mx-auto" />
               <p className="text-xs tracking-widest uppercase">Photo</p>
             </div>
           </div>
           {/* Decorative */}
-          <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#c8a97e]/10 -z-10" />
+          <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#b8935e]/15 -z-10" />
         </div>
 
         {/* Text */}
         <div className="space-y-8">
           <div className="space-y-2">
-            <p className="text-[#c8a97e] text-xs tracking-[0.5em] uppercase">— About —</p>
-            <h2 className="text-4xl md:text-5xl font-thin text-white leading-tight">
+            <p className="text-[#b8935e] text-xs tracking-[0.5em] uppercase">— About —</p>
+            <h2 className="text-4xl md:text-5xl font-thin text-[#1a1a1a] leading-tight">
               The Artist
             </h2>
           </div>
 
-          <div className="space-y-4 text-white/50 font-light leading-relaxed text-sm">
+          <div className="space-y-4 text-black/50 font-light leading-relaxed text-sm">
             <p>
               Jahyun Seo is an interdisciplinary artist based in Albany, California, working
               between New York and Seoul. Her practice spans painting, mixed media installation,
@@ -55,11 +55,11 @@ export default function About() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 gap-6 pt-4 border-t border-white/5">
+          <div className="grid grid-cols-2 gap-6 pt-4 border-t border-black/5">
             {stats.map((s) => (
               <div key={s.label}>
-                <p className="text-3xl font-thin text-[#c8a97e]">{s.value}</p>
-                <p className="text-xs tracking-widest text-white/30 uppercase mt-1">{s.label}</p>
+                <p className="text-3xl font-thin text-[#b8935e]">{s.value}</p>
+                <p className="text-xs tracking-widest text-black/30 uppercase mt-1">{s.label}</p>
               </div>
             ))}
           </div>
@@ -70,7 +70,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
             download
-            className="inline-block border border-[#c8a97e]/40 text-[#c8a97e] text-xs tracking-widest uppercase px-6 py-3 hover:bg-[#c8a97e]/10 transition-all duration-300"
+            className="inline-block border border-[#b8935e]/40 text-[#b8935e] text-xs tracking-widest uppercase px-6 py-3 hover:bg-[#b8935e]/10 transition-all duration-300"
           >
             Download CV
           </a>
