@@ -35,14 +35,14 @@ export default function About() {
 
           <div className="space-y-4 text-white/50 font-light leading-relaxed text-sm">
             <p>
-              Jane Doe is a multidisciplinary visual artist based in Seoul, working
-              across oil painting, watercolor, and digital media. Her work explores
+              Jahyun Seo is a multidisciplinary visual artist based in Albany, California,
+              working across oil painting, watercolor, and digital media. Her work explores
               the quiet intersections between memory, space, and the passage of time.
             </p>
             <p>
-              Educated at the Seoul National University of Arts, she has exhibited
-              internationally across Asia and Europe. Her practice is driven by a
-              deep curiosity about how light shapes perception and emotion.
+              Her interdisciplinary practice spans fine art, installation, and digital work,
+              exhibited internationally across North America, Asia, and Europe. She is driven
+              by a deep curiosity about how light shapes perception and emotion.
             </p>
             <p>
               Currently accepting commissions and exhibition proposals.

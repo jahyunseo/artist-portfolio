@@ -13,9 +13,10 @@ export default function Contact() {
   };
 
   const socials = [
-    { label: "Instagram", href: "#" },
-    { label: "Behance", href: "#" },
-    { label: "Twitter / X", href: "#" },
+    { label: "Instagram", href: "https://www.instagram.com/jahyunseo_artist" },
+    { label: "YouTube", href: "https://www.youtube.com/@jahyunseoartist" },
+    { label: "Linktree", href: "https://linktr.ee/jahyun.seo" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/jahyunseo" },
   ];
 
   return (
@@ -96,16 +97,16 @@ export default function Contact() {
             <div className="space-y-2">
               <p className="text-[10px] tracking-widest uppercase text-[#c8a97e]/60">Email</p>
               <a
-                href="mailto:hello@janedoe.art"
+                href="mailto:jahyun.seo@gmail.com"
                 className="text-white/60 text-sm hover:text-[#c8a97e] transition-colors"
               >
-                hello@janedoe.art
+                jahyun.seo@gmail.com
               </a>
             </div>
 
             <div className="space-y-2">
               <p className="text-[10px] tracking-widest uppercase text-[#c8a97e]/60">Location</p>
-              <p className="text-white/60 text-sm">Seoul, South Korea</p>
+              <p className="text-white/60 text-sm">Albany, California, USA</p>
             </div>
 
             <div className="space-y-3">
