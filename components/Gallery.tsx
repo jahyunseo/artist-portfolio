@@ -6,17 +6,11 @@ const works = [
   { id: 1, title: "Echoes in Gold", category: "Mixed Media", year: "2025", image: "/works/mixed-01.jpg", size: "163×130cm" },
   { id: 2, title: "Pink Pulse", category: "Mixed Media", year: "2025", image: "/works/mixed-02.jpg", size: "130×163cm" },
   { id: 3, title: "Starfall Signal", category: "Mixed Media", year: "2025", image: "/works/mixed-03.jpg", size: "163×130cm" },
-  { id: 4, title: "Trumpet Light", category: "Mixed Media", year: "2025", image: "/works/mixed-04.jpg", size: "91×116.8cm" },
-  { id: 5, title: "When He Comes, Starting", category: "Mixed Media", year: "2025", image: "/works/mixed-05.jpg", size: "60×75cm" },
-  { id: 6, title: "Protection and Shield A", category: "Digital", year: "2019", image: "/works/digital-01.jpg", size: "30×30cm" },
-  { id: 7, title: "Which Choice", category: "Digital", year: "2019", image: "/works/digital-02.jpg", size: "" },
-  { id: 8, title: "Monalisa 7", category: "Digital", year: "2020", image: "/works/digital-03.jpg", size: "67.7×67.7cm" },
-  { id: 9, title: "The Sermon on the Mount 5", category: "Digital", year: "2020", image: "/works/digital-04.jpg", size: "110×110cm" },
-  { id: 10, title: "The Creation 35", category: "Digital", year: "2020", image: "/works/digital-05.jpg", size: "110×110cm" },
-  { id: 11, title: "CUBEHEART LOVE", category: "Digital", year: "2022", image: "/works/digital-06.jpg", size: "" },
-  { id: 12, title: "CUBEHEART PASSION", category: "Digital", year: "2022", image: "/works/digital-07.jpg", size: "" },
-  { id: 13, title: "Love Prayertime R837", category: "Digital", year: "2023", image: "/works/digital-08.jpg", size: "40×40cm" },
-  { id: 14, title: "Love Prayertime Secret Code", category: "Digital", year: "2023", image: "/works/digital-09.jpg", size: "40×40cm" },
+  { id: 4, title: "Monalisa 7", category: "Digital", year: "2020", image: "/works/digital-03.jpg", size: "67.7×67.7cm" },
+  { id: 5, title: "CUBEHEART LOVE", category: "Digital", year: "2022", image: "/works/digital-06.jpg", size: "" },
+  { id: 6, title: "CUBEHEART PASSION", category: "Digital", year: "2022", image: "/works/digital-07.jpg", size: "" },
+  { id: 7, title: "Love Prayertime R837", category: "Digital", year: "2023", image: "/works/digital-08.jpg", size: "40×40cm" },
+  { id: 8, title: "Love Prayertime Secret Code", category: "Digital", year: "2023", image: "/works/digital-09.jpg", size: "40×40cm" },
 ];
 
 const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
