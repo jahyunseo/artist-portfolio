@@ -9,16 +9,14 @@ export default function About() {
   return (
     <section id="about" className="py-32 border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-        {/* Image placeholder */}
+        {/* Photo */}
         <div className="relative">
-          <div
-            className="w-full aspect-[3/4] bg-[#1a1410] flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #1a1410 0%, #2a1f18 100%)" }}
-          >
-            <div className="text-center space-y-2 text-[#c8a97e]/20">
-              <div className="w-24 h-24 border border-[#c8a97e]/20 rounded-full mx-auto" />
-              <p className="text-xs tracking-widest uppercase">Photo</p>
-            </div>
+          <div className="w-full aspect-[3/4] overflow-hidden">
+            <img
+              src="/photo.jpg"
+              alt="Jahyun Seo"
+              className="w-full h-full object-cover"
+            />
           </div>
           {/* Decorative */}
           <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#c8a97e]/10 -z-10" />
