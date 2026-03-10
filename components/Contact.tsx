@@ -1,16 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: connect to email API
-    setSent(true);
-  };
+  const [state, handleSubmit] = useForm("mojkeyyj");
 
   const socials = [
     { label: "Instagram", href: "https://www.instagram.com/jahyunseo_artist" },
@@ -32,7 +25,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-16">
           {/* Form */}
-          {sent ? (
+          {state.succeeded ? (
             <div className="flex items-center justify-center text-center md:col-span-2 py-16">
               <div className="space-y-3">
                 <p className="text-[#c8a97e] text-4xl">✓</p>
@@ -49,10 +42,9 @@ export default function Contact() {
                 <div key={f.id} className="relative">
                   <input
                     id={f.id}
+                    name={f.id}
                     type={f.type}
                     required
-                    value={form[f.id as keyof typeof form]}
-                    onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
                     className="peer w-full bg-transparent border-b border-white/10 focus:border-[#c8a97e] text-white text-sm py-3 outline-none transition-colors placeholder-transparent"
                     placeholder={f.label}
                   />
@@ -62,16 +54,16 @@ export default function Contact() {
                   >
                     {f.label}
                   </label>
+                  <ValidationError prefix={f.label} field={f.id} errors={state.errors} className="text-red-400 text-xs mt-1" />
                 </div>
               ))}
 
               <div className="relative">
                 <textarea
                   id="message"
+                  name="message"
                   required
                   rows={5}
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="peer w-full bg-transparent border-b border-white/10 focus:border-[#c8a97e] text-white text-sm py-3 outline-none transition-colors resize-none placeholder-transparent"
                   placeholder="Message"
                 />
@@ -81,13 +73,15 @@ export default function Contact() {
                 >
                   Message
                 </label>
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
               <button
                 type="submit"
-                className="mt-4 border border-[#c8a97e]/40 text-[#c8a97e] text-xs tracking-widest uppercase px-8 py-3 hover:bg-[#c8a97e]/10 transition-all duration-300"
+                disabled={state.submitting}
+                className="mt-4 border border-[#c8a97e]/40 text-[#c8a97e] text-xs tracking-widest uppercase px-8 py-3 hover:bg-[#c8a97e]/10 transition-all duration-300 disabled:opacity-40"
               >
-                Send Message
+                {state.submitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           )}
@@ -116,6 +110,8 @@ export default function Contact() {
                   <a
                     key={s.label}
                     href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white/40 text-sm hover:text-[#c8a97e] transition-colors"
                   >
                     {s.label} →
