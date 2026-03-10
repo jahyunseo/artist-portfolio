@@ -35,17 +35,22 @@ export default function About() {
 
           <div className="space-y-4 text-white/50 font-light leading-relaxed text-sm">
             <p>
-              Jahyun Seo is a multidisciplinary visual artist based in Albany, California,
-              working across oil painting, watercolor, and digital media. Her work explores
-              the quiet intersections between memory, space, and the passage of time.
+              Jahyun Seo is an interdisciplinary artist based in Albany, California, working
+              between New York and Seoul. Her practice spans painting, mixed media installation,
+              digital imagery, and writing, rooted in her signature methodology — the
+              Multi-Layered Planar Structure.
             </p>
             <p>
-              Her interdisciplinary practice spans fine art, installation, and digital work,
-              exhibited internationally across North America, Asia, and Europe. She is driven
-              by a deep curiosity about how light shapes perception and emotion.
+              Her work explores the theme of Seeing and Being Seen, examining how truth is
+              transformed and distorted through media, viewed through a Christian worldview.
+              She graduated from École Supérieure d&apos;Art Neufville Conte in Paris and
+              earned her Ph.D. in Fiber Art from Hongik University, Seoul.
             </p>
             <p>
-              Currently accepting commissions and exhibition proposals.
+              Seo has presented 19 solo exhibitions including shows at La MaMa Galleria
+              (New York, 2017), Seoul Arts Center (2020), and The New York Public Library
+              (2023), and has participated in over 200 group exhibitions worldwide. She is
+              represented by Gallery Sejul, Seoul.
             </p>
           </div>
 
