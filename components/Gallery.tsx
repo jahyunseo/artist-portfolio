@@ -3,14 +3,14 @@
 import { useState } from "react";
 
 const works = [
-  { id: 1, title: "Silence I", category: "Oil Painting", year: "2024", aspect: "portrait", color: "#2a1f1a" },
-  { id: 2, title: "Urban Flow", category: "Digital Art", year: "2024", aspect: "landscape", color: "#1a2030" },
-  { id: 3, title: "Bloom", category: "Watercolor", year: "2023", aspect: "square", color: "#1f1a2a" },
-  { id: 4, title: "Fracture", category: "Mixed Media", year: "2023", aspect: "portrait", color: "#1a2520" },
-  { id: 5, title: "Memory Lane", category: "Oil Painting", year: "2023", aspect: "landscape", color: "#201a15" },
-  { id: 6, title: "Echo", category: "Digital Art", year: "2022", aspect: "square", color: "#151a20" },
-  { id: 7, title: "Drift", category: "Watercolor", year: "2022", aspect: "portrait", color: "#1a1520" },
-  { id: 8, title: "Solitude", category: "Mixed Media", year: "2022", aspect: "landscape", color: "#201a1a" },
+  { id: 1, title: "Silence I", category: "Acrylic", year: "2024", aspect: "portrait", color: "#e8e0d5" },
+  { id: 2, title: "Urban Flow", category: "Digital", year: "2024", aspect: "landscape", color: "#d5dde8" },
+  { id: 3, title: "Bloom", category: "Acrylic", year: "2023", aspect: "square", color: "#e8d5e0" },
+  { id: 4, title: "Fracture", category: "Mixed Media", year: "2023", aspect: "portrait", color: "#d5e8e0" },
+  { id: 5, title: "Memory Lane", category: "Installation", year: "2023", aspect: "landscape", color: "#e8e5d5" },
+  { id: 6, title: "Echo", category: "Digital", year: "2022", aspect: "square", color: "#d8d5e8" },
+  { id: 7, title: "Drift", category: "Collaboration", year: "2022", aspect: "portrait", color: "#e8d5d8" },
+  { id: 8, title: "Solitude", category: "Mixed Media", year: "2022", aspect: "landscape", color: "#dde8d5" },
 ];
 
 const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
@@ -61,12 +61,12 @@ export default function Gallery() {
           >
             {/* Placeholder art */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 border border-[#c8a97e]/20 rotate-45 group-hover:scale-110 transition-transform duration-700" />
+              <div className="w-16 h-16 border border-[#c8a97e]/40 rotate-45 group-hover:scale-110 transition-transform duration-700" />
             </div>
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-500 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
-              <p className="text-white text-sm font-light">{work.title}</p>
+            <div className="absolute inset-0 bg-white/0 group-hover:bg-white/60 transition-all duration-500 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
+              <p className="text-[#2a2a2a] text-sm font-light">{work.title}</p>
               <p className="text-[#c8a97e] text-xs tracking-widest mt-1">{work.category}</p>
             </div>
           </button>
