@@ -18,6 +18,9 @@ const works = [
   { id: 13, title: "Seeing and Being Seen — La MaMa Galleria", category: "Installation", year: "2017", image: "/works/install-04.jpg", size: "" },
   { id: 14, title: "Vermont Studio Center", category: "Installation", year: "2023", image: "/works/install-05.jpg", size: "" },
   { id: 15, title: "New York Public Library", category: "Installation", year: "2023", image: "/works/install-06.jpg", size: "" },
+  { id: 16, title: "Seeing and Being Seen — with FRZM MOVEMENT I", category: "Collaboration", year: "2020", image: "/works/collab-01.jpg", size: "" },
+  { id: 17, title: "Seeing and Being Seen — with FRZM MOVEMENT II", category: "Collaboration", year: "2020", image: "/works/collab-02.jpg", size: "" },
+  { id: 18, title: "Seeing and Being Seen — with FRZM MOVEMENT III", category: "Collaboration", year: "2020", image: "/works/collab-03.jpg", size: "" },
 ];
 
 const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
