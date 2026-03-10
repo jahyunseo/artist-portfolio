@@ -1,95 +1,79 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let w = (canvas.width = window.innerWidth);
-    let h = (canvas.height = window.innerHeight);
-
-    const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number }[] = [];
-    for (let i = 0; i < 80; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.25 + 0.05,
-      });
-    }
-
-    let raf: number;
-    function draw() {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, w, h);
-      for (const p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(184, 147, 94, ${p.opacity})`;
-        ctx.fill();
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0) p.x = w;
-        if (p.x > w) p.x = 0;
-        if (p.y < 0) p.y = h;
-        if (p.y > h) p.y = 0;
-      }
-      raf = requestAnimationFrame(draw);
-    }
-    draw();
-
-    const resize = () => {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", resize);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-    };
+    const t = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(t);
   }, []);
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#fafaf8]"
+      className="min-h-screen bg-white flex flex-col justify-center relative overflow-hidden"
     >
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+      {/* Background grid */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: "linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#fafaf810] to-[#fafaf8]" />
+      {/* Gold accent line */}
+      <div className="absolute left-0 top-0 bottom-0 w-px bg-[#c8a97e]/20" />
 
-      <div className="relative z-10 text-center px-6 space-y-6">
-        <p className="text-[#b8935e] text-xs tracking-[0.5em] uppercase">— Portfolio —</p>
-        <h1 className="text-6xl md:text-8xl font-thin tracking-tight text-[#1a1a1a] leading-none">
-          Jahyun Seo
-        </h1>
-        <p className="text-black/40 text-sm md:text-base tracking-[0.2em] uppercase">
-          Interdisciplinary Artist
-        </p>
-        <div className="pt-6">
-          <a
-            href="#gallery"
-            className="inline-block border border-[#b8935e]/40 text-[#b8935e] text-xs tracking-widest uppercase px-8 py-3 hover:bg-[#b8935e]/10 transition-all duration-300"
-          >
-            View Work
-          </a>
+      <div className="max-w-6xl mx-auto px-8 w-full">
+        <div
+          className={`transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
+          {/* Eyebrow */}
+          <p className="text-[#c8a97e] text-[11px] tracking-[0.4em] uppercase mb-8">
+            Interdisciplinary Artist
+          </p>
+
+          {/* Name */}
+          <h1 className="text-[clamp(3rem,10vw,7rem)] font-extralight text-[#1a1a1a] leading-[1.05] tracking-tight mb-6">
+            Jahyun<br />
+            <span className="italic text-[#c8a97e]">Seo</span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-[#6b6b6b] text-sm leading-relaxed max-w-md mb-12 font-light">
+            Working between New York, Albany, and Seoul — painting,
+            installation, digital imagery, and writing.
+          </p>
+
+          {/* CTA */}
+          <div className="flex items-center gap-8">
+            <a
+              href="#gallery"
+              className="inline-flex items-center gap-3 bg-[#1a1a1a] text-white text-[11px] tracking-[0.2em] uppercase px-7 py-3.5 hover:bg-[#c8a97e] transition-colors duration-300"
+            >
+              View Gallery
+            </a>
+            <a
+              href="#about"
+              className="text-[11px] tracking-[0.2em] uppercase text-[#6b6b6b] hover:text-[#c8a97e] transition-colors border-b border-transparent hover:border-[#c8a97e] pb-0.5"
+            >
+              About
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <span className="text-[10px] tracking-widest uppercase text-black/60">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-black/40 to-transparent animate-pulse" />
+      {/* Scroll hint */}
+      <div className="absolute bottom-10 right-8 flex flex-col items-center gap-3">
+        <span className="text-[9px] tracking-[0.3em] uppercase text-[#1a1a1a]/30 [writing-mode:vertical-lr]">Scroll</span>
+        <div className="w-px h-12 bg-gradient-to-b from-[#1a1a1a]/20 to-transparent" />
       </div>
+
+      {/* Bottom rule */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-[#e5e5e5]" />
     </section>
   );
 }

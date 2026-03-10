@@ -14,64 +14,67 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[#fafaf8cc] backdrop-blur-md border-b border-black/5" : ""
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-sm border-b border-[#e5e5e5]"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="#hero" className="text-[#b8935e] font-light tracking-[0.3em] text-sm uppercase">
-          Studio
+      <div className="max-w-6xl mx-auto px-8 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <a href="#hero" className="text-[#1a1a1a] text-sm font-medium tracking-[0.15em] uppercase">
+          Jahyun Seo
         </a>
 
-        {/* Desktop */}
-        <ul className="hidden md:flex gap-10">
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="text-xs tracking-widest uppercase text-black/40 hover:text-[#b8935e] transition-colors duration-300"
-              >
-                {l.label}
-              </a>
-            </li>
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-[11px] tracking-[0.2em] uppercase text-[#6b6b6b] hover:text-[#c8a97e] transition-colors duration-200"
+            >
+              {l.label}
+            </a>
           ))}
-        </ul>
+        </nav>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-black/50 hover:text-[#b8935e]"
+          className="md:hidden text-[#1a1a1a] w-8 h-8 flex flex-col justify-center gap-1.5"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="메뉴"
         >
-          <span className="text-xl">{menuOpen ? "✕" : "☰"}</span>
+          <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
+          <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#fafaf8] border-t border-black/5 px-6 pb-6">
-          <ul className="flex flex-col gap-5 pt-5">
+        <div className="md:hidden bg-white border-t border-[#e5e5e5]">
+          <nav className="max-w-6xl mx-auto px-8 py-6 flex flex-col gap-4">
             {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-sm tracking-widest uppercase text-black/40 hover:text-[#b8935e] transition-colors"
-                >
-                  {l.label}
-                </a>
-              </li>
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-[11px] tracking-[0.2em] uppercase text-[#6b6b6b] hover:text-[#c8a97e] transition-colors"
+              >
+                {l.label}
+              </a>
             ))}
-          </ul>
+          </nav>
         </div>
       )}
-    </nav>
+    </header>
   );
 }
