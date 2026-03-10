@@ -1,9 +1,26 @@
 "use client";
 
-import { useForm, ValidationError } from "@formspree/react";
+import { useState } from "react";
 
 export default function Contact() {
-  const [state, handleSubmit] = useForm("mojkeyyj");
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: "57b98574-b444-4342-b3b0-5ef0a0f42742",
+        ...form,
+      }),
+    });
+
+    setStatus(res.ok ? "success" : "error");
+  };
 
   const socials = [
     { label: "Instagram", href: "https://www.instagram.com/jahyunseo_artist" },
@@ -25,7 +42,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-16">
           {/* Form */}
-          {state.succeeded ? (
+          {status === "success" ? (
             <div className="flex items-center justify-center text-center md:col-span-2 py-16">
               <div className="space-y-3">
                 <p className="text-[#c8a97e] text-4xl">✓</p>
@@ -42,9 +59,10 @@ export default function Contact() {
                 <div key={f.id} className="relative">
                   <input
                     id={f.id}
-                    name={f.id}
                     type={f.type}
                     required
+                    value={form[f.id as keyof typeof form]}
+                    onChange={(e) => setForm({ ...form, [f.id]: e.target.value })}
                     className="peer w-full bg-transparent border-b border-white/10 focus:border-[#c8a97e] text-white text-sm py-3 outline-none transition-colors placeholder-transparent"
                     placeholder={f.label}
                   />
@@ -54,16 +72,16 @@ export default function Contact() {
                   >
                     {f.label}
                   </label>
-                  <ValidationError prefix={f.label} field={f.id} errors={state.errors} className="text-red-400 text-xs mt-1" />
                 </div>
               ))}
 
               <div className="relative">
                 <textarea
                   id="message"
-                  name="message"
                   required
                   rows={5}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="peer w-full bg-transparent border-b border-white/10 focus:border-[#c8a97e] text-white text-sm py-3 outline-none transition-colors resize-none placeholder-transparent"
                   placeholder="Message"
                 />
@@ -73,15 +91,20 @@ export default function Contact() {
                 >
                   Message
                 </label>
-                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
+
+              {status === "error" && (
+                <p className="text-red-400 text-xs tracking-wide">
+                  Something went wrong. Please try again.
+                </p>
+              )}
 
               <button
                 type="submit"
-                disabled={state.submitting}
+                disabled={status === "submitting"}
                 className="mt-4 border border-[#c8a97e]/40 text-[#c8a97e] text-xs tracking-widest uppercase px-8 py-3 hover:bg-[#c8a97e]/10 transition-all duration-300 disabled:opacity-40"
               >
-                {state.submitting ? "Sending..." : "Send Message"}
+                {status === "submitting" ? "Sending..." : "Send Message"}
               </button>
             </form>
           )}
