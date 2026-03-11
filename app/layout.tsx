@@ -8,8 +8,8 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Artist Portfolio",
-  description: "Creative portfolio showcasing original artwork",
+  title: "Jahyun Seo Portfolio",
+  description: "Interdisciplinary Artist — Mixed Media, Digital, Installation",
 };
 
 export default function RootLayout({
