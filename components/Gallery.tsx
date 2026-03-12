@@ -23,7 +23,7 @@ const works = [
   { id: 18, title: "Seeing and Being Seen — with FRZM MOVEMENT III", category: "Collaboration", year: "2020", image: "/works/collab-03.jpg", size: "" },
 ];
 
-const categories = ["All", "Acrylic", "Digital", "Mixed Media", "Installation", "Collaboration"];
+const categories = ["All", "Digital", "Mixed Media", "Installation", "Collaboration"];
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
